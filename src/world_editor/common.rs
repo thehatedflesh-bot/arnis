@@ -2779,6 +2779,12 @@ mod tests {
     use super::*;
 
     #[test]
+    fn create_blocks_are_written_with_the_create_namespace() {
+        let item = make_palette_item(CREATE_ANDESITE_CASING, None);
+        assert_eq!(item.name, "create:andesite_casing");
+    }
+
+    #[test]
     fn a_tile_merge_keeps_entities_sharing_a_cell_and_drops_halo_copies() {
         let entity = |uuid: i32, x: f64| {
             Value::Compound(std::collections::HashMap::from([

@@ -876,5 +876,7 @@
   "lidar_limit": "Letöltési korlát",
   "lidar_limit_desc": "Legfeljebb ennyi lézeradatot tölt le egy futás.",
   "lidar_limit_tip": "Legfeljebb ennyi lézeradatot tölt le egy futás. A gyorsítótárazott szkenek nem számítanak. Felette nélkülük fut tovább. Egy négyzetkilométer kb. 100–300 MB.",
-  "lidar_over_limit": "A lézeradatok kimaradtak: a terület kb. {mb} MB-ot igényel, többet, mint a Letöltési korlát ({limit} MB). Növeld itt: Testreszabási lehetőségek > Haladó > Lézeradatok."
+  "lidar_over_limit": "A lézeradatok kimaradtak: a terület kb. {mb} MB-ot igényel, többet, mint a Letöltési korlát ({limit} MB). Növeld itt: Testreszabási lehetőségek > Haladó > Lézeradatok.",
+  "create_blocks": "Create mod blokkok használata",
+  "create_blocks_desc": "Create blokkok használata 3D-modellekben és felismert épülethomlokzatokon. Csak Java; a Create mod telepítése szükséges."
 }

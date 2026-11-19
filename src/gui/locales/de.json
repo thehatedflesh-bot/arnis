@@ -876,5 +876,7 @@
   "lidar_limit": "Download-Limit",
   "lidar_limit_desc": "Höchstens so viel lädt ein Lauf an Laserdaten.",
   "lidar_limit_tip": "Höchstens so viel lädt ein Lauf an Laserdaten. Zwischengespeicherte Scans zählen nicht. Darüber läuft er ohne sie weiter. Ein Quadratkilometer sind etwa 100–300 MB.",
-  "lidar_over_limit": "Laserdaten übersprungen: Das Gebiet braucht etwa {mb} MB, mehr als das Download-Limit von {limit} MB. Erhöhen unter Einstellungen > Erweitert > Laserdaten."
+  "lidar_over_limit": "Laserdaten übersprungen: Das Gebiet braucht etwa {mb} MB, mehr als das Download-Limit von {limit} MB. Erhöhen unter Einstellungen > Erweitert > Laserdaten.",
+  "create_blocks": "Create-Mod-Blöcke verwenden",
+  "create_blocks_desc": "Create-Blöcke in 3D-Modellen und erkannten Gebäudefassaden verwenden. Nur Java; Create muss installiert sein."
 }

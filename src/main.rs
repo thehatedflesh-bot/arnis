@@ -279,6 +279,7 @@ fn run_cli() {
 
     // Parsed ahead of the banner so `--capabilities` prints its line alone.
     let mut args: Args = Args::parse();
+    block_palette::set_create_palette_enabled(args.create_blocks);
     if args.capabilities {
         println!("{}", args::capabilities_json());
         return;

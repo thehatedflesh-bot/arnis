@@ -876,5 +876,7 @@
   "lidar_limit": "下载上限",
   "lidar_limit_desc": "一次生成最多下载的激光数据量。",
   "lidar_limit_tip": "一次生成最多下载的激光数据量。已缓存的扫描不计入。超出时将不使用它们继续生成。每平方公里约 100–300 MB。",
-  "lidar_over_limit": "已跳过激光数据：该区域约需 {mb} MB，超过下载上限（{limit} MB）。可在 自定义设置 > 高级 > 激光数据 中调高。"
+  "lidar_over_limit": "已跳过激光数据：该区域约需 {mb} MB，超过下载上限（{limit} MB）。可在 自定义设置 > 高级 > 激光数据 中调高。",
+  "create_blocks": "使用 Create 模组方块",
+  "create_blocks_desc": "在 3D 模型和识别到的建筑外墙中使用 Create 方块。仅限 Java；游戏中必须安装 Create。"
 }

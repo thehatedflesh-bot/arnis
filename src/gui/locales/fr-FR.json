@@ -876,5 +876,7 @@
   "lidar_limit": "Limite de téléchargement",
   "lidar_limit_desc": "Maximum téléchargé par génération pour le laser.",
   "lidar_limit_tip": "Maximum téléchargé par génération pour les données laser. Les scans en cache ne comptent pas. Au-delà, la génération continue sans eux. Un km² fait environ 100–300 Mo.",
-  "lidar_over_limit": "Données laser ignorées : la zone demande environ {mb} MB, plus que la Limite de téléchargement de {limit} MB. Augmentez-la dans Paramètres de personnalisation > Avancé > Données laser."
+  "lidar_over_limit": "Données laser ignorées : la zone demande environ {mb} MB, plus que la Limite de téléchargement de {limit} MB. Augmentez-la dans Paramètres de personnalisation > Avancé > Données laser.",
+  "create_blocks": "Utiliser les blocs du mod Create",
+  "create_blocks_desc": "Utilisez les blocs de Create dans les modèles 3D et les façades détectées. Java uniquement ; Create doit être installé."
 }

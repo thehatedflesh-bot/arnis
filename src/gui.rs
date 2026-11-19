@@ -406,6 +406,7 @@ struct LiveStartOptions {
     winter_enabled: bool,
     post_apocalyptic_enabled: bool,
     interior_enabled: bool,
+    create_blocks_enabled: bool,
     fillground_enabled: bool,
     caves_enabled: bool,
     legacy_trees_enabled: bool,
@@ -2429,6 +2430,7 @@ fn piece_argv(args: &Args, world_path: &Path, flags: &[String]) -> Vec<std::ffi:
         ("--fillground", args.fillground),
         ("--caves", args.caves),
         ("--legacy-trees", args.legacy_trees),
+        ("--create-blocks", args.create_blocks),
         ("--no-3d", !args.use_3d),
         ("--debug", args.debug),
         ("--vanilla-height", args.vanilla_height),
@@ -2852,6 +2854,11 @@ fn gui_start_generation(
     use progress::emit_gui_error;
     use LLBBox;
     let is_new_world = owns_selected_world(is_new_world, one_world, &flags);
+    if create_blocks_enabled && world_format != "java" {
+        let error = "Create mod blocks are only available for Java Edition worlds.";
+        progress::emit_gui_error(error);
+        return Err(error.to_string());
+    }
 
     // Shapes replace the rectangle; the status line holds 35 characters, so details go to the log.
     let shapes = match selection_shapes.filter(|rings| !rings.is_empty()) {
@@ -3183,6 +3190,7 @@ fn gui_start_generation(
                 winter: winter_enabled,
                 legacy_terrain: false,
                 interior: interior_enabled,
+                create_blocks: create_blocks_enabled,
                 fillground: fillground_enabled,
                 caves: caves_enabled,
                 // The asset pack, biome mix and zone preview are CLI aids; the GUI toggle
@@ -3292,6 +3300,7 @@ fn gui_start_generation(
                 prewarm_first: false,
                 ..extra
             };
+            crate::block_palette::set_create_palette_enabled(args.create_blocks);
             if tall_forced {
                 args.disable_height_limit = true;
                 args.vanilla_height = false;
@@ -4371,6 +4380,20 @@ mod tests {
                 .unwrap();
         assert_eq!(back.world_name.as_deref(), Some("--seed=9"));
         assert_eq!(back.seed, None);
+    }
+
+    #[test]
+    fn create_palette_option_is_kept_for_one_world_pieces() {
+        use clap::Parser;
+        let mut args = Args::try_parse_from(["arnis"]).unwrap();
+        args.create_blocks = true;
+        let argv = piece_argv(&args, Path::new("saves/World"), &[]);
+        assert!(argv.iter().any(|arg| arg == "--create-blocks"));
+
+        let back =
+            Args::try_parse_from(std::iter::once(std::ffi::OsString::from("arnis")).chain(argv))
+                .unwrap();
+        assert!(back.create_blocks);
     }
 
     #[test]

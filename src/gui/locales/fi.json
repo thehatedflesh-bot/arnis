@@ -876,5 +876,7 @@
   "lidar_limit": "Latausraja",
   "lidar_limit_desc": "Enintään näin paljon laserdataa ajoa kohden.",
   "lidar_limit_tip": "Enintään näin paljon laserdataa ajoa kohden. Välimuistissa olevat eivät lasketa. Rajan yli ajo jatkuu ilman niitä. Neliökilometri on noin 100–300 Mt.",
-  "lidar_over_limit": "Laserdata ohitettiin: alue tarvitsee noin {mb} MB, enemmän kuin Latausraja ({limit} MB). Nosta sitä kohdassa Kustomisaatio-asetukset > Lisäasetukset > Laserdata."
+  "lidar_over_limit": "Laserdata ohitettiin: alue tarvitsee noin {mb} MB, enemmän kuin Latausraja ({limit} MB). Nosta sitä kohdassa Kustomisaatio-asetukset > Lisäasetukset > Laserdata.",
+  "create_blocks": "Käytä Create-modin lohkoja",
+  "create_blocks_desc": "Käytä Create-lohkoja 3D-malleissa ja tunnistetuissa rakennusten julkisivuissa. Vain Java; vaatii Create-modin peliin."
 }

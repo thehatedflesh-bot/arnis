@@ -876,5 +876,7 @@
   "lidar_limit": "Giới hạn tải về",
   "lidar_limit_desc": "Lượng dữ liệu laser tối đa một lần tạo tải về.",
   "lidar_limit_tip": "Lượng dữ liệu laser tối đa một lần tạo tải về. Dữ liệu đã lưu đệm không tính. Vượt quá thì tiếp tục mà không có chúng. Một km² khoảng 100–300 MB.",
-  "lidar_over_limit": "Đã bỏ qua dữ liệu laser: khu vực cần khoảng {mb} MB, vượt Giới hạn tải về {limit} MB. Tăng giới hạn trong Cài đặt > Nâng cao > Dữ liệu laser."
+  "lidar_over_limit": "Đã bỏ qua dữ liệu laser: khu vực cần khoảng {mb} MB, vượt Giới hạn tải về {limit} MB. Tăng giới hạn trong Cài đặt > Nâng cao > Dữ liệu laser.",
+  "create_blocks": "Dùng khối của mod Create",
+  "create_blocks_desc": "Dùng khối Create trong mô hình 3D và mặt tiền công trình được nhận diện. Chỉ Java; trò chơi cần cài Create."
 }

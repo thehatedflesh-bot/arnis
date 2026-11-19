@@ -876,5 +876,7 @@
   "lidar_limit": "Nedladdningsgräns",
   "lidar_limit_desc": "Mest laserdata en körning laddar ner.",
   "lidar_limit_tip": "Mest laserdata en körning laddar ner. Cachade skanningar räknas inte. Över gränsen fortsätter körningen utan dem. En km² är cirka 100–300 MB.",
-  "lidar_over_limit": "Laserdata hoppades över: området behöver omkring {mb} MB, mer än Nedladdningsgräns på {limit} MB. Höj den under Anpassningsinställningar > Avancerat > Laserdata."
+  "lidar_over_limit": "Laserdata hoppades över: området behöver omkring {mb} MB, mer än Nedladdningsgräns på {limit} MB. Höj den under Anpassningsinställningar > Avancerat > Laserdata.",
+  "create_blocks": "Använd block från Create-modden",
+  "create_blocks_desc": "Använd Create-block i 3D-modeller och igenkända byggnadsfasader. Endast Java; Create måste finnas i spelet."
 }

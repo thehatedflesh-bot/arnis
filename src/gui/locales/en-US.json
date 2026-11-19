@@ -58,6 +58,8 @@
   "mode_terrain_only": "Terrain only",
   "mode_blueprint": "Blueprint",
   "interior": "Interior Generation",
+  "create_blocks": "Create Mod Blocks",
+  "create_blocks_desc": "Use Create blocks in 3D models and mapped building facades. Java only; requires Create in your game.",
   "fillground": "Fill Ground",
   "caves": "Caves",
   "legacy_trees": "Legacy Trees",

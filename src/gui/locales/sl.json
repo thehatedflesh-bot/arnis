@@ -876,5 +876,7 @@
   "lidar_limit": "Omejitev prenosa",
   "lidar_limit_desc": "Največ, kar en zagon prenese laserskih podatkov.",
   "lidar_limit_tip": "Največ, kar en zagon prenese laserskih podatkov. Predpomnjeni skeni ne štejejo. Nad mejo zagon teče brez njih. En km² je okoli 100–300 MB.",
-  "lidar_over_limit": "Laserski podatki izpuščeni: območje potrebuje približno {mb} MB, več kot Omejitev prenosa ({limit} MB). Povečajte jo v Nastavitve prilagajanja > Napredno > Laserski podatki."
+  "lidar_over_limit": "Laserski podatki izpuščeni: območje potrebuje približno {mb} MB, več kot Omejitev prenosa ({limit} MB). Povečajte jo v Nastavitve prilagajanja > Napredno > Laserski podatki.",
+  "create_blocks": "Uporabi bloke moda Create",
+  "create_blocks_desc": "Uporabi bloke Create v 3D-modelih in prepoznanih fasadah stavb. Samo Java; v igri mora biti nameščen Create."
 }

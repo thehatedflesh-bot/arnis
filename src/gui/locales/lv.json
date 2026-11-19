@@ -876,5 +876,7 @@
   "lidar_limit": "Lejupielādes limits",
   "lidar_limit_desc": "Cik daudz lāzera datu lejupielādē viena palaišana.",
   "lidar_limit_tip": "Cik daudz lāzera datu lejupielādē viena palaišana. Kešatmiņā esošie neskaitās. Pārsniedzot palaišana turpinās bez tiem. Viens km² ir ap 100–300 MB.",
-  "lidar_over_limit": "Lāzera dati izlaisti: apgabalam vajag ap {mb} MB, vairāk nekā Lejupielādes limits ({limit} MB). Palieliniet to: Personalizācijas iestatījumi > Papildu > Lāzera dati."
+  "lidar_over_limit": "Lāzera dati izlaisti: apgabalam vajag ap {mb} MB, vairāk nekā Lejupielādes limits ({limit} MB). Palieliniet to: Personalizācijas iestatījumi > Papildu > Lāzera dati.",
+  "create_blocks": "Izmantot Create moda blokus",
+  "create_blocks_desc": "Izmantot Create blokus 3D modeļos un atpazītās ēku fasādēs. Tikai Java; spēlē jābūt instalētam Create."
 }

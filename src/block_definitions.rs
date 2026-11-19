@@ -104,7 +104,11 @@ impl Block {
 
     #[inline(always)]
     pub fn namespace(&self) -> &str {
-        "minecraft"
+        if matches!(self.id, 528..=534) {
+            "create"
+        } else {
+            "minecraft"
+        }
     }
 
     pub fn name(&self) -> &str {
@@ -614,6 +618,13 @@ impl Block {
             525 => "stripped_warped_stem",
             526 => "stripped_warped_hyphae",
             527 => "barrier",
+            528 => "andesite_casing",
+            529 => "brass_casing",
+            530 => "copper_casing",
+            531 => "industrial_iron_block",
+            532 => "railway_casing",
+            533 => "shadow_steel_casing",
+            534 => "refined_radiance_casing",
             _ => return None,
         })
         // Block ids are u16 handles; keep the name and property tables in sync
@@ -1355,6 +1366,13 @@ pub const GOLD_ORE: Block = Block::new(129);
 pub const COPPER_ORE: Block = Block::new(130);
 pub const CLAY: Block = Block::new(131);
 pub const DIRT_PATH: Block = Block::new(132);
+pub const CREATE_ANDESITE_CASING: Block = Block::new(528);
+pub const CREATE_BRASS_CASING: Block = Block::new(529);
+pub const CREATE_COPPER_CASING: Block = Block::new(530);
+pub const CREATE_INDUSTRIAL_IRON_BLOCK: Block = Block::new(531);
+pub const CREATE_RAILWAY_CASING: Block = Block::new(532);
+pub const CREATE_SHADOW_STEEL_CASING: Block = Block::new(533);
+pub const CREATE_REFINED_RADIANCE_CASING: Block = Block::new(534);
 
 pub const PACKED_ICE: Block = Block::new(134);
 pub const MUD: Block = Block::new(135);

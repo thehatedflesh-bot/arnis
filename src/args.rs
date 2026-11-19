@@ -141,6 +141,10 @@ pub struct Args {
     #[arg(long, default_value_t = false, action = ArgAction::Set, num_args = 0..=1, default_missing_value = "true")]
     pub interior: bool,
 
+    /// Use Create mod blocks in Java 3D models and mapped building facades.
+    #[arg(long, default_value_t = false, conflicts_with_all = ["bedrock", "luanti", "hytale"])]
+    pub create_blocks: bool,
+
     /// Enable filling ground (optional)
     #[arg(long, default_value_t = false)]
     pub fillground: bool,
@@ -2783,6 +2787,19 @@ mod tests {
         assert!(args.bedrock);
         assert!(args.path.is_none());
         assert!(validate_args(&args).is_ok());
+    }
+
+    #[test]
+    fn create_blocks_are_opt_in_and_java_only() {
+        let args = Args::try_parse_from(["arnis", "--create-blocks"]).unwrap();
+        assert!(args.create_blocks);
+
+        for format in ["--bedrock", "--luanti", "--hytale"] {
+            assert!(
+                Args::try_parse_from(["arnis", "--create-blocks", format]).is_err(),
+                "{format} must reject the Java-only Create palette"
+            );
+        }
     }
 
     #[test]

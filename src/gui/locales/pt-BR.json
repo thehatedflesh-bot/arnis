@@ -876,5 +876,7 @@
   "lidar_limit": "Limite de download",
   "lidar_limit_desc": "O máximo que uma geração baixa de dados a laser.",
   "lidar_limit_tip": "O máximo que uma geração baixa de dados a laser. Varreduras em cache não contam. Acima disso, segue sem elas. Um km² tem cerca de 100–300 MB.",
-  "lidar_over_limit": "Dados a laser ignorados: a área precisa de cerca de {mb} MB, mais que o Limite de download de {limit} MB. Aumente em Configurações de personalização > Avançado > Dados a laser."
+  "lidar_over_limit": "Dados a laser ignorados: a área precisa de cerca de {mb} MB, mais que o Limite de download de {limit} MB. Aumente em Configurações de personalização > Avançado > Dados a laser.",
+  "create_blocks": "Usar blocos do mod Create",
+  "create_blocks_desc": "Use blocos do Create em modelos 3D e fachadas de edifícios reconhecidas. Apenas Java; requer o Create no jogo."
 }

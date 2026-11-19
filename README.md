@@ -42,6 +42,7 @@ Command line Build: ```cargo run --release --no-default-features -- --output-dir
 GUI Build: ```cargo run --release```<br>
 
 All command line options, like the generation modes, winter and One World, are explained on the [Command Line Usage](https://github.com/louis-e/arnis/wiki/Command-Line-Usage) wiki page.
+For Java worlds, `--create-blocks` opts into Create mod blocks for 3D models and mapped building facades. Open the world with a compatible Create installation; this option does not generate functional Create machinery.
 
 After your pull request is merged, I will take care of regularly creating update releases which will include your changes.
 

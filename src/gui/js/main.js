@@ -689,6 +689,7 @@ const EARTH_ONLY_SETTINGS = [
   'post-apocalyptic-toggle',
   'use-3d-toggle',
   'interior-toggle',
+  'create-blocks-toggle',
   'canopy-height-toggle',
   'legacy-trees-toggle',
   'scale-value-slider',
@@ -2284,6 +2285,8 @@ function refreshGameplayRows(format) {
   gate('pause-menu-toggle');
   gate('zombie-outbreak-toggle');
   gate('disasters-toggle');
+  const createBlocksReason = why([current === 'java', 'reason_java']);
+  setSettingsRowAvailable('create-blocks-toggle', !createBlocksReason, createBlocksReason);
   gate('discoveries-toggle', [earth, 'reason_earth']);
   gate('traffic-lights-toggle', [earth, 'reason_earth'], [!blueprint, 'reason_blueprint']);
   const carsWhy = why([current === 'java' || current === 'bedrock', 'reason_java_bedrock'],
@@ -4989,6 +4992,7 @@ function readGenerationSettings(oneWorld) {
     winterEnabled: checked("winter-toggle"),
     postApocalypticEnabled: checked("post-apocalyptic-toggle"),
     interiorEnabled: checked("interior-toggle"),
+    createBlocksEnabled: live("create-blocks-toggle"),
     fillgroundEnabled: checked("fillground-toggle"),
     cavesEnabled: checked("caves-toggle"),
     legacyTreesEnabled: checked("legacy-trees-toggle"),

@@ -3,9 +3,16 @@
 //! while walls and roofs draw from filtered subsets.
 
 use rand::Rng;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use crate::block_definitions::*;
 use crate::colors::{oklab_components, oklab_distance_lab, RGBTuple};
+
+static CREATE_PALETTE_ENABLED: AtomicBool = AtomicBool::new(false);
+
+pub fn set_create_palette_enabled(enabled: bool) {
+    CREATE_PALETTE_ENABLED.store(enabled, Ordering::Relaxed);
+}
 
 pub const USE_MODEL: u8 = 1;
 pub const USE_WALL: u8 = 2;
@@ -123,17 +130,38 @@ static PALETTE: &[(RGBTuple, Block, u8)] = &[
     ((87,  91,  91),  CYAN_TERRACOTTA, MWR),
 ];
 
+#[rustfmt::skip]
+static CREATE_PALETTE: &[(RGBTuple, Block, u8)] = &[
+    ((107, 94, 73), CREATE_ANDESITE_CASING, M | F),
+    ((117, 85, 48), CREATE_BRASS_CASING, M | F),
+    ((130, 91, 78), CREATE_COPPER_CASING, M | F),
+    ((82, 80, 81), CREATE_INDUSTRIAL_IRON_BLOCK, M | F),
+    ((110, 92, 69), CREATE_RAILWAY_CASING, M | F),
+    ((47, 46, 53), CREATE_SHADOW_STEEL_CASING, M | F),
+    ((163, 164, 150), CREATE_REFINED_RADIANCE_CASING, M | F),
+];
+
 /// `PALETTE` with each colour already in Oklab. Converting costs three `powf` and three
 /// `cbrt`, and a 3D model matches every one of its voxels against the whole palette.
 fn palette_lab() -> impl Iterator<Item = (&'static (f32, f32, f32), Block, u8)> {
+    palette_lab_with_create(CREATE_PALETTE_ENABLED.load(Ordering::Relaxed))
+}
+
+fn palette_lab_with_create(
+    include_create: bool,
+) -> impl Iterator<Item = (&'static (f32, f32, f32), Block, u8)> {
     static LAB: std::sync::OnceLock<Vec<(f32, f32, f32)>> = std::sync::OnceLock::new();
     let lab = LAB.get_or_init(|| {
         PALETTE
             .iter()
+            .chain(CREATE_PALETTE.iter())
             .map(|(c, _, _)| oklab_components(c))
             .collect()
     });
-    lab.iter().zip(PALETTE).map(|(l, &(_, b, f))| (l, b, f))
+    lab.iter()
+        .zip(PALETTE.iter().chain(CREATE_PALETTE.iter()))
+        .map(|(l, &(_, b, f))| (l, b, f))
+        .filter(move |(_, block, _)| include_create || block.namespace() != "create")
 }
 
 /// Palette block whose color is perceptually closest (Oklab) to the input.
@@ -337,6 +365,28 @@ mod tests {
     #[test]
     fn palette_non_empty() {
         assert!(PALETTE.len() >= 60);
+    }
+
+    #[test]
+    fn create_palette_is_opt_in_and_uses_registered_create_blocks() {
+        assert!(palette_lab_with_create(false).all(|(_, block, _)| block.namespace() != "create"));
+
+        let included: Vec<_> = palette_lab_with_create(true)
+            .filter(|(_, block, _)| block.namespace() == "create")
+            .map(|(_, block, _)| (block.namespace(), block.name()))
+            .collect();
+        assert_eq!(
+            included,
+            vec![
+                ("create", "andesite_casing"),
+                ("create", "brass_casing"),
+                ("create", "copper_casing"),
+                ("create", "industrial_iron_block"),
+                ("create", "railway_casing"),
+                ("create", "shadow_steel_casing"),
+                ("create", "refined_radiance_casing"),
+            ]
+        );
     }
 
     // The cached palette must pick exactly what converting both colours on every
